@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Guida Stasera?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Chi Guida Stasera?</h1>
+
+    <div id="inputContainer">
+        <input type="text" id="nameInput" placeholder="Inserisci un nome">
+        <button id="addNameBtn">Aggiungi Nome</button>
+    </div>
+
+    <div id="nameList">
+        <!-- List of names will be displayed here -->
+    </div>
+
+    <div id="wheelAndControlsContainer">
+        <div id="wheelContainer">
+            <canvas id="wheelCanvas" width="400" height="400"></canvas>
+            <div id="pointerArrow"></div>
+        </div>
+        <button id="spinBtn">VIA!</button>
+        <div id="result"></div> <!-- Result is inside wheelAndControlsContainer -->
+    </div>
+
+    <div id="postSpinActionsContainer" class="hidden">
+        <button id="resetBtn">Reset</button>
+        <button id="respinBtn">Gira Ancora</button>
+        <button id="modifyListBtn">Modifica Lista</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

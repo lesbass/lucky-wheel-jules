@@ -1,0 +1,144 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+h1 {
+    color: #C70039; /* A color from the wheel palette */
+    margin-bottom: 20px;
+}
+
+#inputContainer, #wheelAndControlsContainer, #resultContainer, #postSpinActions { /* resultContainer and postSpinActions are for future use or general styling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#inputContainer {
+    flex-direction: row;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FF5733; /* A color from the wheel palette */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #C70039; /* Darker shade */
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#nameList {
+    margin-top: 15px;
+    min-height: 50px; /* Placeholder for names */
+    text-align: center;
+    background-color: #fff; /* Added background to make it a distinct area */
+    padding: 10px; /* Added padding */
+    border-radius: 8px; /* Consistent rounding */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Consistent shadow */
+    width: calc(100% - 30px); /* Take full width of parent minus padding */
+    max-width: 400px; /* Max width similar to wheel */
+}
+
+#nameList div { /* Changed from p to div to match JS, and added styling */
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 5px 10px;
+    margin: 5px; /* Added margin for spacing between names */
+    border-radius: 4px;
+    display: inline-block;
+}
+
+#wheelContainer {
+    position: relative; /* For pointer positioning */
+    width: 400px; /* Match canvas width */
+    height: 400px; /* Match canvas height */
+    margin-bottom: 20px; /* Space for spin button or result */
+}
+
+#wheelCanvas {
+    display: block; /* Remove extra space below canvas */
+    border-radius: 50%; /* Make it look round if it's a perfect circle */
+}
+
+#pointerArrow {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #333; /* Arrow color */
+    position: absolute;
+    top: -10px; /* Position above the center of the wheel, tip pointing slightly into the wheel */
+    left: 50%;
+    transform: translateX(-50%); /* Points downwards towards canvas center */
+    z-index: 10;
+}
+/* Note: The JS logic for winner determination (3*PI/2) assumes the pointer is at the top, pointing DOWN.
+   The 'top: -10px;' and 'border-top' creates an arrow pointing down.
+*/
+
+
+#result {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #581845; /* A color from the wheel palette */
+    padding: 10px;
+    min-height: 30px; /* Ensure space even when empty */
+    border-radius: 4px; /* Added for consistency */
+    background-color: #fff; /* Added for consistency */
+    text-align: center; /* Center the result text */
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* Container for action buttons after spin */
+#postSpinActionsContainer {
+    display: flex; /* To lay out buttons in a row */
+    justify-content: center;
+    margin-top: 10px;
+    /* This container doesn't need background/shadow if buttons are styled */
+}
+
+#postSpinActionsContainer button {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #6c757d; /* Secondary button color */
+}
+#postSpinActionsContainer button:hover {
+    background-color: #545b62; /* Darker secondary */
+}
